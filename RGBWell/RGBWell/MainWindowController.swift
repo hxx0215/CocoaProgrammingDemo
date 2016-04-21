@@ -11,6 +11,9 @@ import Cocoa
 class MainWindowController: NSWindowController {
     
     @IBOutlet weak var colorWell: NSColorWell!
+    @IBOutlet weak var rSlider: NSSlider!
+    @IBOutlet weak var gSlider: NSSlider!
+    @IBOutlet weak var bSlider: NSSlider!
     
     var r = 0.0
     var g = 0.0
@@ -23,6 +26,9 @@ class MainWindowController: NSWindowController {
     
     override func windowDidLoad() {
         super.windowDidLoad()
+        rSlider.doubleValue = r
+        gSlider.doubleValue = g
+        bSlider.doubleValue = b
         updateColor()
     }
     
