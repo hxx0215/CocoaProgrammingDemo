@@ -8,9 +8,22 @@
 
 import Cocoa
 
-class Document: NSDocument {
+private var KVOContext: Int = 0
+
+class Document: NSDocument ,NSWindowDelegate{
     
-    var employees: [Employee] = []
+    var employees: [Employee] = []{
+        willSet{
+            for employee in employees{
+                stopObservingEmployee(employee)
+            }
+        }
+        didSet{
+            for employee in employees{
+                startObservingEmployee(employee)
+            }
+        }
+    }
 
     override init() {
         super.init()
@@ -41,6 +54,53 @@ class Document: NSDocument {
 //        throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
     }
 
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if context != &KVOContext{
+            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+            return
+        }else{
+            var oldValue: AnyObject? = change![NSKeyValueChangeOldKey]
+            if oldValue is NSNull {
+                oldValue = nil
+            }
+            let undo = undoManager!
+            undo.prepareWithInvocationTarget(object!).setValue(oldValue, forKey: keyPath!)
+        }
+    }
+    
+    func windowWillClose(notification: NSNotification) {
+        employees = []
+    }
 
+    func insertObject(employee: Employee,inEmployeesAtIndex index:Int){
+        print("add \(employee) to employees array")
+        let undo: NSUndoManager = undoManager!
+        undo.prepareWithInvocationTarget(self).removeObjectFromEmployeesAtIndex(employees.count)
+        if !undo.undoing{
+            undo.setActionName("Add Person")
+        }
+        employees.append(employee)
+    }
+    
+    func removeObjectFromEmployeesAtIndex(index :Int){
+        let employee = employees[index]
+        print("removing \(employee) from the employees array")
+        let undo = undoManager!
+        undo.prepareWithInvocationTarget(self).insertObject(employee, inEmployeesAtIndex: index)
+        if !undo.undoing{
+            undo.setActionName("Remove Person")
+        }
+        employees.removeAtIndex(index)
+    }
+    
+    func startObservingEmployee(employee: Employee){
+        employee.addObserver(self, forKeyPath: "name", options: .Old, context: &KVOContext)
+        employee.addObserver(self, forKeyPath: "raise", options: .Old, context: &KVOContext)
+    }
+    
+    func stopObservingEmployee(employee: Employee){
+        employee.removeObserver(self, forKeyPath: "name")
+        employee.removeObserver(self, forKeyPath: "raise")
+    }
 }
 
