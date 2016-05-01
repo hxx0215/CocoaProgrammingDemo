@@ -13,7 +13,7 @@ private var KVOContext: Int = 0
 class Document: NSDocument ,NSWindowDelegate{
     
     @IBOutlet weak var tableView: NSTableView!
-    
+    @IBOutlet weak var arrayController: NSArrayController!
     var employees: [Employee] = []{
         willSet{
             for employee in employees{
