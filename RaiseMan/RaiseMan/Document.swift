@@ -104,5 +104,8 @@ class Document: NSDocument ,NSWindowDelegate{
         employee.removeObserver(self, forKeyPath: "name")
         employee.removeObserver(self, forKeyPath: "raise")
     }
+    @IBAction func addEmployee(sender: NSButton){
+        
+    }
 }
 
