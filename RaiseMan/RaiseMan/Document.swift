@@ -105,7 +105,30 @@ class Document: NSDocument ,NSWindowDelegate{
         employee.removeObserver(self, forKeyPath: "raise")
     }
     @IBAction func addEmployee(sender: NSButton){
+        let windowController = windowControllers[0] 
+        let window = windowController.window!
+        let endedEditing = window.makeFirstResponder(window)
+        if !endedEditing{
+            print("unable to end editing")
+            return
+        }
+        let undo: NSUndoManager = undoManager!
+        if undo.groupingLevel > 0 {
+            undo.endUndoGrouping()
+            undo.beginUndoGrouping()
+        }
         
+        let employee = arrayController.newObject() as! Employee
+        arrayController.addObject(employee)
+        
+        arrayController.rearrangeObjects()
+        
+        let sortedEmployees = arrayController.arrangedObjects as! [Employee]
+        
+        let row = sortedEmployees.indexOf(employee)
+        
+        print("starting edit of \(employee) in row \(row)")
+        tableView.editColumn(0, row: row!, withEvent: nil, select: true)
     }
 }
 
