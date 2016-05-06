@@ -46,7 +46,8 @@ class Document: NSDocument ,NSWindowDelegate{
         // Insert code here to write your document to data of the specified type. If outError != nil, ensure that you create and set an appropriate error when returning nil.
         // You can also choose to override fileWrapperOfType:error:, writeToURL:ofType:error:, or writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
 //        throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
-        return NSData()
+        tableView.window?.endEditingFor(nil)
+        return NSKeyedArchiver.archivedDataWithRootObject(employees)
     }
 
     override func readFromData(data: NSData, ofType typeName: String) throws {
@@ -54,6 +55,8 @@ class Document: NSDocument ,NSWindowDelegate{
         // You can also choose to override readFromFileWrapper:ofType:error: or readFromURL:ofType:error: instead.
         // If you override either of these, you should also override -isEntireFileLoaded to return false if the contents are lazily loaded.
 //        throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
+        print("about to read data of type \(typeName)")
+        employees = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! [Employee]
     }
 
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
@@ -130,5 +133,6 @@ class Document: NSDocument ,NSWindowDelegate{
         print("starting edit of \(employee) in row \(row)")
         tableView.editColumn(0, row: row!, withEvent: nil, select: true)
     }
+    
 }
 
