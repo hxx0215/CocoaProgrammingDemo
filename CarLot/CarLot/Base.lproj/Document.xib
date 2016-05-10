@@ -26,7 +26,7 @@
                 <outlet property="delegate" destination="-2" id="0bl-1N-x8E"/>
             </connections>
         </window>
-        <arrayController mode="entity" entityName="Car" automaticallyPreparesContent="YES" id="0cf-qW-Pgf">
+        <arrayController mode="entity" entityName="Car" automaticallyPreparesContent="YES" id="0cf-qW-Pgf" userLabel="Cars">
             <connections>
                 <binding destination="-2" name="managedObjectContext" keyPath="self.managedObjectContext" id="PRb-Bs-iZ4"/>
             </connections>
