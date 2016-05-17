@@ -99,7 +99,7 @@
                                                 </tableCellView>
                                             </prototypeCellViews>
                                         </tableColumn>
-                                        <tableColumn identifier="" width="10" minWidth="10" maxWidth="3.4028234663852886e+38" id="bw2-WM-mUf">
+                                        <tableColumn identifier="" width="140" minWidth="10" maxWidth="3.4028234663852886e+38" id="bw2-WM-mUf">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -113,7 +113,7 @@
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <prototypeCellViews>
                                                 <tableCellView id="23e-TW-6qT">
-                                                    <rect key="frame" x="323" y="1" width="10" height="17"/>
+                                                    <rect key="frame" x="323" y="1" width="140" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t5N-ni-HxN">
