@@ -23,7 +23,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwN-FI-GgX">
-                        <rect key="frame" x="20" y="212" width="467" height="181"/>
+                        <rect key="frame" x="20" y="192" width="467" height="181"/>
                         <clipView key="contentView" ambiguous="YES" id="t6z-hT-FQP">
                             <rect key="frame" x="1" y="0.0" width="465" height="180"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
