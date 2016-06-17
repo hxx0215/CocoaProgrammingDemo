@@ -1,0 +1,22 @@
+PODS:
+  - CocoaAsyncSocket (7.4.3):
+    - CocoaAsyncSocket/All (= 7.4.3)
+  - CocoaAsyncSocket/All (7.4.3):
+    - CocoaAsyncSocket/GCD
+    - CocoaAsyncSocket/RunLoop
+  - CocoaAsyncSocket/GCD (7.4.3)
+  - CocoaAsyncSocket/RunLoop (7.4.3)
+  - JKVValue (1.3.1)
+  - RMQClient (0.7.1):
+    - CocoaAsyncSocket (~> 7.4)
+    - JKVValue
+
+DEPENDENCIES:
+  - RMQClient (~> 0.7)
+
+SPEC CHECKSUMS:
+  CocoaAsyncSocket: a18c75dca4b08723628a0bacca6e94803d90be91
+  JKVValue: 4a74ff563f5e5ee141dd196c30714303837dd8b6
+  RMQClient: cc2783151a8c32c6b3da661d719c904e04345b30
+
+COCOAPODS: 0.39.0
