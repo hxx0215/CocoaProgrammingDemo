@@ -13,6 +13,7 @@
 //@import RMQClient;
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *messageField;
 @property(nonatomic, strong)id<RMQChannel> ch;
 @property(nonatomic, strong)RMQConnection *conn;
 @end
