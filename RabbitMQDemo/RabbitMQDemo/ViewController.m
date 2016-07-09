@@ -42,14 +42,14 @@
 - (IBAction)sendMessage:(id)sender {
     
     RMQQueue *q = [self.ch queue:@"hello" options:RMQQueueDeclareDurable];
-    [q publish:@"hello world"];
+    [q publish:self.messageField.text];
     asl_add_log_file(NULL, STDERR_FILENO);
     asl_log(NULL,NULL,ASL_LEVEL_INFO,"Sent 'Hello World!'");
     
 }
 
 - (void)registerReceive{
-    RMQConnection *conn = [[RMQConnection alloc] initWithUri:@"url" delegate:[RMQConnectionDelegateLogger new]];
+    RMQConnection *conn = [[RMQConnection alloc] initWithUri:@"amqp://hxx:922033@101.200.219.144//ios" delegate:[RMQConnectionDelegateLogger new]];
     [conn start];
     
     id<RMQChannel> ch = [conn createChannel];
