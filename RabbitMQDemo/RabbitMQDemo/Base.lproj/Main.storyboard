@@ -51,6 +51,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="Text" destination="wKu-zC-Myh" id="W8Y-IR-XVR"/>
                         <outlet property="messageField" destination="8mq-Oz-Gh6" id="0RO-li-gvS"/>
                     </connections>
                 </viewController>
