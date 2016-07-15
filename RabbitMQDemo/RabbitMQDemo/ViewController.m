@@ -15,6 +15,7 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *messageField;
 @property(nonatomic, strong)id<RMQChannel> ch;
+@property (weak, nonatomic) IBOutlet UITextView *Text;
 @property(nonatomic, strong)RMQConnection *conn;
 @end
 
