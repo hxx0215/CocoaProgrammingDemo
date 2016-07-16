@@ -59,5 +59,6 @@
     asl_log(NULL,NULL,ASL_LEVEL_INFO,"Waiting for messages.");
     [q subscribe:^(RMQMessage * _Nonnull message) {
         NSLog(@"Received %@", message.content);
+        _Text.text = [NSString stringWithFormat:@"%@\n%@",_Text.text,message.content];
     }];}
 @end
