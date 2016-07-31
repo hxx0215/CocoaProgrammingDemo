@@ -21,12 +21,22 @@
 
 
 @implementation ViewController
-
+- (void)delay:(void(^)())closure{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        NSLog(@"clock");
+        closure();
+    });
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [self send];
-    [self registerReceive];
+    int a = 42;
+    [self delay:^{
+        NSLog(@"inside %d",a);
+    }];
+    a = 1337;
+//    [self send];
+//    [self registerReceive];
 }
 
 - (void)didReceiveMemoryWarning {
