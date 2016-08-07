@@ -23,13 +23,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwN-FI-GgX">
-                        <rect key="frame" x="20" y="192" width="467" height="201"/>
+                        <rect key="frame" x="20" y="20" width="467" height="373"/>
                         <clipView key="contentView" ambiguous="YES" id="t6z-hT-FQP">
-                            <rect key="frame" x="1" y="0.0" width="465" height="200"/>
+                            <rect key="frame" x="1" y="0.0" width="465" height="372"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="XMc-Nv-k87" viewBased="YES" id="zwd-Sb-S9X">
-                                    <rect key="frame" x="0.0" y="0.0" width="465" height="177"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="465" height="349"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
